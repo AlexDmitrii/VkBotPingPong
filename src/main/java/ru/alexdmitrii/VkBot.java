@@ -1,5 +1,6 @@
 package ru.alexdmitrii;
 
+import lombok.Getter;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
@@ -23,6 +24,9 @@ public class VkBot {
 
     private static final String API_ADDRESS = "https://api.vk.com/method/";
 
+    @Getter
+    protected final String accessToken;
+
     private final HttpClient httpClient;
 
     public String getApiVersion(){
@@ -33,7 +37,9 @@ public class VkBot {
         return API_ADDRESS;
     }
 
-    public VkBot(){
+    public VkBot(String accessToken){
+
+        this.accessToken = accessToken;
 
         CookieStore cookieStore = new BasicCookieStore();
         RequestConfig requestConfig = RequestConfig.custom()
@@ -56,9 +62,10 @@ public class VkBot {
     }
 
     public void sendMessage(String message, Integer userId) throws IOException {
-        String sendMessageUrl = getApiAddress() + "messages.send?&access_token=vk1.a.7Pm8P2x0svpbeAeItvVVij0hf9liNsRT1-4it-VKEIjAb7XHucckk6J0F1x_4bHyFAKE_A1Ds8FiPLR5A18cuoyBPxHvfw_gQvvmCdOjgrYqIcio_R5L1FETxJXZWy9YnHU6f1mtDUhF7fB3U_cHznFzWKu91VDezsd-N4hBJ641SiTu3JbeRAK8x7BfU4GhME2nvh6bY3e80rlpzL2mwA";
+        String sendMessageUrl = getApiAddress() + "messages.send";
 
         Random random = new Random();
+        sendMessageUrl += "?access_token=" + this.accessToken;
         sendMessageUrl += "&random_id=" + random.nextInt(10_000);
         sendMessageUrl += "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
         sendMessageUrl += "&v=" + API_VERSION;

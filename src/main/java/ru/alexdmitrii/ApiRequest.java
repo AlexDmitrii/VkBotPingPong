@@ -23,16 +23,12 @@ public abstract class ApiRequest<T> {
     @Getter
     protected final VkBot vkBot;
 
-    @Getter
-    protected final String access_token;
-
     private final Gson gson;
 
     private final Type responseType;
 
-    public ApiRequest(VkBot vkBot, String accessToken, Type responseType) {
+    public ApiRequest(VkBot vkBot, Type responseType) {
         this.vkBot = vkBot;
-        this.access_token = accessToken;
         this.gson = new GsonBuilder().disableHtmlEscaping().create();
         this.responseType = responseType;
     }
