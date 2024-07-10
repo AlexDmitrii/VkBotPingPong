@@ -14,7 +14,7 @@ public class GetLongPollServer extends ApiRequest<LongPollServer> {
 
     public String getUrl(){
         return vkBot.getApiAddress() + "messages.getLongPollServer"
-                + "?v=5.199"
+                + "?v=" + this.getVkBot().getApiVersion()
                 + "&access_token=" + this.getVkBot().getAccessToken()
                 + "&group_id=" + group_id;
     }

@@ -14,7 +14,7 @@ public class GetLongPollHistory extends ApiRequest<LongPollHistory>{
 
     public String getUrl(){
         return this.getVkBot().getApiAddress() + "messages.getLongPollHistory"
-                + "?&v=5.199"
+                + "?&v=" + this.getVkBot().getApiVersion()
                 + "&access_token=" + this.getVkBot().getAccessToken()
                 + "&ts=" + ts;
     }
