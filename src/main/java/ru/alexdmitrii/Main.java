@@ -1,5 +1,7 @@
 package ru.alexdmitrii;
 
+import ru.alexdmitrii.exceptions.ParseException;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -9,17 +11,17 @@ public class Main {
 
     private static final String group_id = "226505040";
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, ParseException {
         VkBot bot = new VkBot();
 
         GetLongPollServer getLongPollServer = new GetLongPollServer(bot, access_token, group_id);
-        LongPollServer pollServer = getLongPollServer.post();
+        LongPollServer pollServer = getLongPollServer.post(getLongPollServer.getUrl());
 
         String ts = pollServer.getTs();
 
         while (true){
             GetLongPollHistory getLongPollHistory = new GetLongPollHistory(bot, access_token, ts);
-            LongPollHistory pollHistory = getLongPollHistory.post();
+            LongPollHistory pollHistory = getLongPollHistory.post(getLongPollHistory.getUrl());
 
             List<Message> messages = pollHistory.getMessages().getItems();
 
@@ -33,7 +35,7 @@ public class Main {
                 });
             }
 
-            ts = getLongPollServer.post().getTs();
+            ts = getLongPollServer.post(getLongPollServer.getUrl()).getTs();
             Thread.sleep(500);
         }
 
