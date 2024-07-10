@@ -20,8 +20,8 @@ public class Main {
 
         GetLongPollServer getLongPollServer = new GetLongPollServer(bot, GROUP_ID);
         LongPollServer pollServer = getLongPollServer.post(getLongPollServer.getUrl());
-        String ts = pollServer.getTs();
 
+        String ts = pollServer.getTs();
         while (true){
             GetLongPollHistory getLongPollHistory = new GetLongPollHistory(bot, ts);
             LongPollHistory pollHistory = getLongPollHistory.post(getLongPollHistory.getUrl());
