@@ -55,13 +55,14 @@ public class VkBot {
                 .build();
     }
 
-    public void sendMessage(String message) throws IOException {
-        String sendMessageUrl = getApiAddress() + "messages.send?user_id=367214198&access_token=vk1.a.7Pm8P2x0svpbeAeItvVVij0hf9liNsRT1-4it-VKEIjAb7XHucckk6J0F1x_4bHyFAKE_A1Ds8FiPLR5A18cuoyBPxHvfw_gQvvmCdOjgrYqIcio_R5L1FETxJXZWy9YnHU6f1mtDUhF7fB3U_cHznFzWKu91VDezsd-N4hBJ641SiTu3JbeRAK8x7BfU4GhME2nvh6bY3e80rlpzL2mwA";
+    public void sendMessage(String message, Integer userId) throws IOException {
+        String sendMessageUrl = getApiAddress() + "messages.send?&access_token=vk1.a.7Pm8P2x0svpbeAeItvVVij0hf9liNsRT1-4it-VKEIjAb7XHucckk6J0F1x_4bHyFAKE_A1Ds8FiPLR5A18cuoyBPxHvfw_gQvvmCdOjgrYqIcio_R5L1FETxJXZWy9YnHU6f1mtDUhF7fB3U_cHznFzWKu91VDezsd-N4hBJ641SiTu3JbeRAK8x7BfU4GhME2nvh6bY3e80rlpzL2mwA";
 
         Random random = new Random();
         sendMessageUrl += "&random_id=" + random.nextInt(10_000);
         sendMessageUrl += "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8);
         sendMessageUrl += "&v=" + API_VERSION;
+        sendMessageUrl += "&user_id=" + userId;
 
         HttpPost request = new HttpPost(sendMessageUrl);
         request.setHeader("Content-Type", "application/x-www-form-urlencoded");

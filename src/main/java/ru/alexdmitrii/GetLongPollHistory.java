@@ -30,7 +30,7 @@ public class GetLongPollHistory {
 
     public LongPollHistory post() throws IOException {
 
-        String longPollHistoryUrl = vkBot.getApiAddress() + "messages.getLongPollHistory?user_id=367214198&v=5.199"
+        String longPollHistoryUrl = vkBot.getApiAddress() + "messages.getLongPollHistory?&v=5.199"
                 + "&access_token=" + access_token
                 + "&ts=" + ts;
 

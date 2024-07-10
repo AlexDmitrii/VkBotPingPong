@@ -27,7 +27,7 @@ public class GetLongPollServer extends LongPollServer {
 
     public LongPollServer post() throws IOException {
 
-        String longPollServerUrl = vkBot.getApiAddress() + "messages.getLongPollServer?user_id=367214198&v=5.199"
+        String longPollServerUrl = vkBot.getApiAddress() + "messages.getLongPollServer?v=5.199"
                 + "&access_token=" + access_token
                 + "&group_id=" + group_id;
 
