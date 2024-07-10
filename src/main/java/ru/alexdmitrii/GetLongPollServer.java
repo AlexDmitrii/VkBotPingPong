@@ -1,6 +1,8 @@
 package ru.alexdmitrii;
 
 
+import ru.alexdmitrii.objects.LongPollServer;
+
 public class GetLongPollServer extends ApiRequest<LongPollServer> {
 
     private final String group_id;

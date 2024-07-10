@@ -1,6 +1,9 @@
 package ru.alexdmitrii;
 
 import ru.alexdmitrii.exceptions.ParseException;
+import ru.alexdmitrii.objects.LongPollHistory;
+import ru.alexdmitrii.objects.LongPollServer;
+import ru.alexdmitrii.objects.Message;
 
 import java.io.IOException;
 import java.util.List;

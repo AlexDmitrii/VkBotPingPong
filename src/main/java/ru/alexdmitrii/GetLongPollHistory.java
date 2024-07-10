@@ -1,6 +1,8 @@
 package ru.alexdmitrii;
 
 
+import ru.alexdmitrii.objects.LongPollHistory;
+
 public class GetLongPollHistory extends ApiRequest<LongPollHistory>{
 
     private final String ts;

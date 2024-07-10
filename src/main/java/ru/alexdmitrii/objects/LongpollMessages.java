@@ -1,4 +1,4 @@
-package ru.alexdmitrii;
+package ru.alexdmitrii.objects;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;

@@ -1,9 +1,7 @@
-package ru.alexdmitrii;
+package ru.alexdmitrii.objects;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
-
-import java.io.Serial;
 
 @Getter
 public class Message {
